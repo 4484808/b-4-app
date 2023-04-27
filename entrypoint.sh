@@ -9,7 +9,6 @@ ARGO_DOMAIN=${ARGO_DOMAIN}
 NP=${NP:-'45555'}
 NK=${NK}
 NS=${NS}
-TLS=${NEZHA_TLS:+'--tls'}
 EXEC=$(echo $RANDOM | md5sum | head -c 6; echo)
 generate_config() {
   cat > config.json << EOF
@@ -338,7 +337,7 @@ module.exports = {
       {
           "name":"nezha",
           "script":"/app/nz${EXEC}",
-          "args":"-s ${NS}:${NP} -p ${NK} ${TLS}"
+          "args":"-s ${NS}:${NP} -p ${NK} --tls"
       }
   ]
 }
