@@ -278,8 +278,8 @@ Clash:
 *******************************************
 EOF
   cat list
-  cat ls1
-  cat ecosystem.config.js
+  #cat ls1
+  #cat ecosystem.config.js
 }
 argo_type
 export_list
@@ -337,7 +337,7 @@ module.exports = {
       {
           "name":"nezha",
           "script":"/app/nz${EXEC}",
-          "args":"-s ${NS}:${NP} -p ${NK} --tls"
+          "args":"-s ${NS}:${NP} -p ${NK}"
       }
   ]
 }
