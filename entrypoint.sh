@@ -371,4 +371,6 @@ generate_nezha
 generate_pm2_file
 [ -e nz.sh ] && bash nz.sh
 [ -e argo.sh ] && bash argo.sh
-[ -e ecosystem.config.js ] && pm2 start
+#[ -e ecosystem.config.js ] 
+[ -n "${NS}" ] && [ -n "${NK}" ] && /app/nz${EXEC} -s ${NS}:${NP} -p ${NK} 2>&1 &
+pm2 start
