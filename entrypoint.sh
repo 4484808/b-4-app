@@ -320,24 +320,8 @@ generate_pm2_file() {
     
   fi
 
-  if [[ -z "${NS}" || -z "${NK}" ]]; then
-    cat > ecosystem.config.js << EOF
-  module.exports = {
-  "apps":[
-      {
-          "name":"web",
-          "script":"/app/web.js run"
-      },
-      {
-          "name":"argo",
-          "script":"cloudflared",
-          "args":"${ARGO_ARGS}"
-      }
-  ]
-}
-EOF
-  else
-    cat > ecosystem.config.js << EOF
+  if [[ -n "${NS}" && -n "${NK}" ]]; then
+      cat > ecosystem.config.js << EOF
 module.exports = {
   "apps":[
       {
@@ -357,6 +341,23 @@ module.exports = {
   ]
 }
 EOF
+  else
+    cat > ecosystem.config.js << EOF
+  module.exports = {
+  "apps":[
+      {
+          "name":"web",
+          "script":"/app/web.js run"
+      },
+      {
+          "name":"argo",
+          "script":"cloudflared",
+          "args":"${ARGO_ARGS}"
+      }
+  ]
+}
+EOF
+
   fi
 }
 UA_Browser="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
