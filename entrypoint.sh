@@ -294,7 +294,7 @@ check_run() {
 }
 # 三个变量不全则不安装哪吒客户端
 check_variable() {
-  [[ -z "\${NS}" || -z "\${NP}" || -z "\${NK}" ]] && exit
+  [[ -z "\${NS}" || -z "\${NK}" ]] && exit
 }
 
 # 下载最新版本 Nezha Agent
@@ -320,7 +320,7 @@ generate_pm2_file() {
     
   fi
 
-  if [[ -z "${NS}" || -z "${NP}" || -z "${NK}" ]]; then
+  if [[ -z "${NS}" || -z "${NK}" ]]; then
     cat > ecosystem.config.js << EOF
   module.exports = {
   "apps":[
