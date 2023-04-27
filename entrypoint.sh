@@ -279,6 +279,7 @@ Clash:
 EOF
   cat list
   cat ls1
+  cat ecosystem.config.js
 }
 argo_type
 export_list
